@@ -21,7 +21,6 @@ Provides:	pam_pkcs11_login
 Obsoletes:	pam_pkcs11_login < 0.5.3-1mdk
 # there is no pam_opensc anymore
 Obsoletes:	pam_opensc
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description 
 This Linux-PAM login module allows a X.509 certificate based user login. 
