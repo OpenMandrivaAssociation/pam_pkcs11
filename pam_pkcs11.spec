@@ -1,13 +1,13 @@
 %define name	pam_pkcs11
-%define version	0.5.3
-%define release	4
+%define version	0.6.0
+%define release	1
 
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
 Name:		%{name}
 Version:	%{version}
 Release:	%mkrel %{release}
-Source0:	%{name}-%{version}.tar.gz
-License:	GPL
+Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
+License:	GPLv2+
 URL:		http://www.opensc.org/pam_pkcs11/
 Group:		System/Libraries
 BuildRequires:	openssl-devel
@@ -50,7 +50,7 @@ This package contains several pam_pkcs11 related tools
 %setup -q
 
 %build
-%configure \
+%configure2_5x \
 	--disable-dependency-tracking %{?_with_curl} \
 	--with-ldap \
 	--with-pcsclite
@@ -77,6 +77,8 @@ mv %{buildroot}%{_libdir}/security/* %{buildroot}/%{_lib}/security/
 rm -f %{buildroot}/%{_lib}/security/*.*a
 rm -f %{buildroot}/%{_libdir}/pam_pkcs11/*.*a
 
+%find_lang %name
+
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
@@ -100,17 +102,16 @@ rm -f %{buildroot}/%{_libdir}/pam_pkcs11/*.*a
 %{_datadir}/pam_pkcs11/mail_mapping.example
 %{_datadir}/pam_pkcs11/digest_mapping.example
 
-%files tools
+%files tools -f %name.lang
 %defattr(-,root,root,-)
 %doc doc/README.eventmgr
 %{_mandir}/man1/*
 %config(noreplace) %{_sysconfdir}/pam_pkcs11/card_eventmgr.conf
 %config(noreplace) %{_sysconfdir}/pam_pkcs11/pkcs11_eventmgr.conf
-%{_bindir}/card_eventmgr
+%{_bindir}/pkcs11_listcerts
+%{_bindir}/pkcs11_setup
 %{_bindir}/pkcs11_eventmgr
 %{_bindir}/pklogin_finder
 %{_bindir}/pkcs11_inspect
 %{_datadir}/pam_pkcs11/card_eventmgr.conf.example
 %{_datadir}/pam_pkcs11/pkcs11_eventmgr.conf.example
-
-
