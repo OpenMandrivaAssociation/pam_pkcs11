@@ -7,6 +7,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%mkrel %{release}
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
+Patch0:		pam_pkcs11-0.6.0-fix-str-fmt.patch
 License:	GPLv2+
 URL:		http://www.opensc.org/pam_pkcs11/
 Group:		System/Libraries
@@ -48,6 +49,7 @@ This package contains several pam_pkcs11 related tools
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x \
