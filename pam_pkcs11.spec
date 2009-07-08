@@ -1,16 +1,16 @@
 %define name	pam_pkcs11
-%define version	0.6.0
-%define release	2
+%define version	0.6.1
+%define release	1
 
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
 Name:		%{name}
 Version:	%{version}
 Release:	%mkrel %{release}
-Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
-Patch0:		pam_pkcs11-0.6.0-fix-str-fmt.patch
 License:	GPLv2+
 URL:		http://www.opensc.org/pam_pkcs11/
 Group:		System/Libraries
+Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
+Patch0:		pam_pkcs11-0.6.1-fix-format-errors.patch
 BuildRequires:	openssl-devel
 BuildRequires:	libldap-devel >= 2.3.6
 BuildRequires:	pam-devel
@@ -22,7 +22,7 @@ Provides:	pam_pkcs11_login
 Obsoletes:	pam_pkcs11_login < 0.5.3-1mdk
 # there is no pam_opensc anymore
 Obsoletes:	pam_opensc
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description 
 This Linux-PAM login module allows a X.509 certificate based user login. 
@@ -49,7 +49,7 @@ This package contains several pam_pkcs11 related tools
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
 
 %build
 %configure2_5x \
@@ -60,8 +60,7 @@ This package contains several pam_pkcs11 related tools
 %make 
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
+rm -rf %{buildroot}
 %makeinstall_std mandir=%{_mandir}
 
 # Hardcoded defaults... no sysconfdir
@@ -82,7 +81,7 @@ rm -f %{buildroot}/%{_libdir}/pam_pkcs11/*.*a
 %find_lang %name
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
