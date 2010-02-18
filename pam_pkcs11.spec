@@ -1,5 +1,5 @@
 %define name	pam_pkcs11
-%define version	0.6.1
+%define version	0.6.2
 %define release	1
 
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
@@ -19,10 +19,10 @@ BuildRequires:	libpcsclite-devel >= 1.2.9
 %{?_with_curl:BuildRequires: curl-devel}
 Provides:	pkcs11_login
 Provides:	pam_pkcs11_login
-Obsoletes:	pam_pkcs11_login < 0.5.3-1mdk
+Obsoletes:	pam_pkcs11_login < 0.6.0-1mdv
 # there is no pam_opensc anymore
 Obsoletes:	pam_opensc
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description 
 This Linux-PAM login module allows a X.509 certificate based user login. 
@@ -32,13 +32,13 @@ certificates, locally stored CA certificates as well as either online or
 locally accessible CRLs are used.
 
 %package tools
-Group:          System/Libraries
-Summary:        Companion tools for pkcs11_login
-Requires:       pcsc-lite
-Requires:       pam_pkcs11
-Provides:       pkcs11_login-tools
+Group:		System/Libraries
+Summary:	Companion tools for pkcs11_login
+Requires:	pcsc-lite
+Requires:	pam_pkcs11
+Provides:	pkcs11_login-tools
 Provides:	pam_pkcs11_login-tools
-Obsoletes:	pam_pkcs11_login-tools < 0.5.3-1mdk
+Obsoletes:	pam_pkcs11_login-tools < 0.6.0-1mdv
 
 %description tools
 This package contains several pam_pkcs11 related tools
@@ -97,11 +97,11 @@ rm -rf %{buildroot}
 %{_bindir}/make_hash_link.sh
 %{_libdir}/pam_pkcs11/*.so
 /%{_lib}/security/*
-%{_datadir}/pam_pkcs11/pam_pkcs11.conf.example
-%{_datadir}/pam_pkcs11/pam.d_login.example
-%{_datadir}/pam_pkcs11/subject_mapping.example
-%{_datadir}/pam_pkcs11/mail_mapping.example
-%{_datadir}/pam_pkcs11/digest_mapping.example
+%{_datadir}/doc/pam_pkcs11/pam_pkcs11.conf.example
+%{_datadir}/doc/pam_pkcs11/pam.d_login.example
+%{_datadir}/doc/pam_pkcs11/subject_mapping.example
+%{_datadir}/doc/pam_pkcs11/mail_mapping.example
+%{_datadir}/doc/pam_pkcs11/digest_mapping.example
 
 %files tools -f %name.lang
 %defattr(-,root,root,-)
@@ -114,5 +114,5 @@ rm -rf %{buildroot}
 %{_bindir}/pkcs11_eventmgr
 %{_bindir}/pklogin_finder
 %{_bindir}/pkcs11_inspect
-%{_datadir}/pam_pkcs11/card_eventmgr.conf.example
-%{_datadir}/pam_pkcs11/pkcs11_eventmgr.conf.example
+%{_datadir}/doc//pam_pkcs11/card_eventmgr.conf.example
+%{_datadir}/doc/pam_pkcs11/pkcs11_eventmgr.conf.example
