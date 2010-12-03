@@ -1,6 +1,6 @@
 %define name	pam_pkcs11
 %define version	0.6.2
-%define release	3
+%define release	4
 
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
 Name:		%{name}
