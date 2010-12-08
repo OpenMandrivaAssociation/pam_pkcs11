@@ -1,5 +1,5 @@
 %define name	pam_pkcs11
-%define version	0.6.3
+%define version	0.6.6
 %define release	1
 
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
@@ -10,6 +10,7 @@ License:	GPLv2+
 URL:		http://www.opensc.org/pam_pkcs11/
 Group:		System/Libraries
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
+Patch0:		pam_pkcs11-0.6.6-strings-fix.patch
 BuildRequires:	openssl-devel
 BuildRequires:	libldap-devel >= 2.3.6
 BuildRequires:	pam-devel
@@ -48,6 +49,7 @@ This package contains several pam_pkcs11 related tools
 
 %prep
 %setup -q
+%patch0 -p0 
 
 %build
 %configure2_5x \
@@ -92,9 +94,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pam_pkcs11/cacerts
 %{_sysconfdir}/pam_pkcs11/crls
 %config(noreplace) %{_sysconfdir}/pam_pkcs11/pam_pkcs11.conf
-%{_bindir}/make_hash_link.sh
 %{_libdir}/pam_pkcs11/*.so
 /%{_lib}/security/*
+%{_bindir}/pkcs11_make_hash_link
 %{_datadir}/doc/pam_pkcs11/pam_pkcs11.conf.example
 %{_datadir}/doc/pam_pkcs11/pam.d_login.example
 %{_datadir}/doc/pam_pkcs11/subject_mapping.example
@@ -109,6 +111,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/pam_pkcs11/pkcs11_eventmgr.conf
 %{_bindir}/pkcs11_listcerts
 %{_bindir}/pkcs11_setup
+%{_bindir}/card_eventmgr
 %{_bindir}/pkcs11_eventmgr
 %{_bindir}/pklogin_finder
 %{_bindir}/pkcs11_inspect
