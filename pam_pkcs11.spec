@@ -97,3 +97,90 @@ mv %{buildroot}%{_datadir}/doc/pam_pkcs11/card_eventmgr.conf.example %{buildroot
 %{_bindir}/pkcs11_eventmgr
 %{_bindir}/pklogin_finder
 %{_bindir}/pkcs11_inspect
+
+
+%changelog
+* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 0.6.6-2mdv2011.0
++ Revision: 666980
+- mass rebuild
+
+* Wed Dec 08 2010 Tomas Kindl <supp@mandriva.org> 0.6.6-1mdv2011.0
++ Revision: 616337
+- add missing strings patch
+- update to 0.6.6
+
+* Sat Dec 04 2010 Tomas Kindl <supp@mandriva.org> 0.6.3-1mdv2011.0
++ Revision: 609460
+- update to 0.6.3
+- drop unneeded patch
+
+* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 0.6.2-4mdv2011.0
++ Revision: 607060
+- rebuild
+
+* Wed Apr 07 2010 Funda Wang <fwang@mandriva.org> 0.6.2-3mdv2010.1
++ Revision: 532511
+- rebuild
+
+* Fri Feb 26 2010 Oden Eriksson <oeriksson@mandriva.com> 0.6.2-2mdv2010.1
++ Revision: 511610
+- rebuilt against openssl-0.9.8m
+
+  + Tomas Kindl <supp@mandriva.org>
+    - bump to 0.6.2
+
+* Wed Jul 08 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.6.1-1mdv2010.0
++ Revision: 393698
+- new version
+- rediff format errors patch
+
+* Sat Apr 11 2009 Funda Wang <fwang@mandriva.org> 0.6.0-2mdv2009.1
++ Revision: 365983
+- fix str fmt
+
+  + Antoine Ginies <aginies@mandriva.com>
+    - rebuild
+
+* Thu Feb 07 2008 Funda Wang <fwang@mandriva.org> 0.6.0-1mdv2008.1
++ Revision: 163624
+- New version 0.6.0
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue Dec 25 2007 Oden Eriksson <oeriksson@mandriva.com> 0.5.3-4mdv2008.1
++ Revision: 137781
+- rebuilt against openldap-2.4.7 libs
+
+* Mon Dec 17 2007 Thierry Vignaud <tv@mandriva.org> 0.5.3-3mdv2008.1
++ Revision: 131001
+- kill re-definition of %%buildroot on Pixel's request
+
+
+* Fri Jan 12 2007 Andreas Hasenack <andreas@mandriva.com> 0.5.3-3mdv2007.0
++ Revision: 107941
+- rebuilt
+- using mkrel
+- Import pam_pkcs11
+
+* Thu Dec 08 2005 Andreas Hasenack <andreas@mandriva.com> 0.5.3-2mdk
+- obsolete pam_opensc
+
+* Mon Nov 07 2005 Andreas Hasenack <andreas@mandriva.com> 0.5.3-1mdk
+- updated to version 0.5.3
+- the tarball was renamed upstream: now we are pam_pkcs11 (without "login")
+- updated url tag: project was absorbed by OpenSC
+- removed pam_pkcs11_x86_64_Makefile.patch.bz2, already applied
+- force rebuild with openldap 2.3.x
+- marked pam_pkcs11.conf, card_eventmgr.conf and pkcs11_eventmgr.conf
+  as %%config(noreplace) files
+- config directory changed from /etc/pkcs11 to /etc/pam_pkcs11
+- added buildrequires for libpcsclite-devel >= 1.2.9
+
+* Sat May 07 2005 Udo Rader <udo.rader@bestsolution.at> 0.5.1-2mdk
+- fixed specfile duplicate files issues
+- fixed build issues on x86_64
+
+* Sun Apr 24 2005 Udo Rader <udo.rader@bestsolution.at> 0.5.1-1mdk
+- initial version
+
