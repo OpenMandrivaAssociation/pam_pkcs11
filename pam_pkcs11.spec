@@ -1,13 +1,13 @@
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
 Name:		pam_pkcs11
 Version:	0.6.8
-Release:	1
+Release:	2
 License:	GPLv2+
 URL:		http://www.opensc.org/pam_pkcs11/
 Group:		System/Libraries
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
 BuildRequires:	openssl-devel
-BuildRequires:	libldap-devel >= 2.3.6
+BuildRequires:	openldap-devel >= 2.3.6
 BuildRequires:	pam-devel
 BuildRequires:	libxslt-proc docbook-style-xsl
 BuildRequires:	libpcsclite-devel >= 1.2.9
