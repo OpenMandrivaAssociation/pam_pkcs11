@@ -6,10 +6,11 @@ License:	GPLv2+
 URL:		http://www.opensc.org/pam_pkcs11/
 Group:		System/Libraries
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
+BuildRequires:  docbook-style-xsl
+BuildRequires:  xsltproc
 BuildRequires:	openssl-devel
 BuildRequires:	openldap-devel >= 2.3.6
 BuildRequires:	pam-devel
-BuildRequires:	libxslt-proc docbook-style-xsl
 BuildRequires:	libpcsclite-devel >= 1.2.9
 %{?_with_curl:BuildRequires: curl-devel}
 Provides:	pkcs11_login
