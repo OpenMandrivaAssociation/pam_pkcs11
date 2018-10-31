@@ -1,7 +1,7 @@
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
 Name:		pam_pkcs11
 Version:	0.6.8
-Release:	10
+Release:	11
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.opensc.org/pam_pkcs11/
