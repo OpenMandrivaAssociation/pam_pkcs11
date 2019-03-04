@@ -1,7 +1,7 @@
 Summary:	A Pluggable Authentication Module for pkcs#11 environments
 Name:		pam_pkcs11
-Version:	0.6.8
-Release:	11
+Version:	0.6.10
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.opensc.org/pam_pkcs11/
@@ -41,19 +41,19 @@ This package contains several pam_pkcs11 related tools
 - pkcs11_inspect: Inspect the contents of a certificate
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%configure2_5x \
+%configure \
 	--disable-dependency-tracking %{?_with_curl} \
 	--with-ldap \
 	--with-pcsclite \
 	--disable-static
 
-%make 
+%make_build
 
 %install
-%makeinstall_std mandir=%{_mandir}
+%make_install mandir=%{_mandir}
 
 # Hardcoded defaults... no sysconfdir
 install -dm 755 %{buildroot}/%{_sysconfdir}/pam_pkcs11/cacerts
@@ -85,7 +85,7 @@ mv %{buildroot}%{_datadir}/doc/pam_pkcs11/card_eventmgr.conf.example %{buildroot
 /%{_lib}/security/*
 %{_bindir}/pkcs11_make_hash_link
 
-%files tools -f %name.lang
+%files tools -f %{name}.lang
 %doc doc/README.eventmgr
 %{_mandir}/man1/*
 %config(noreplace) %{_sysconfdir}/pam_pkcs11/card_eventmgr.conf
