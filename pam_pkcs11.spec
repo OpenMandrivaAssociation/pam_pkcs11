@@ -18,7 +18,7 @@ Provides:	pam_pkcs11_login
 # there is no pam_opensc anymore
 Obsoletes:	pam_opensc
 
-%description 
+%description
 This Linux-PAM login module allows a X.509 certificate based user login. 
 The certificate and its dedicated private key are thereby accessed by means 
 of an appropriate PKCS #11 module. For the verification of the users' 
@@ -44,6 +44,8 @@ This package contains several pam_pkcs11 related tools
 %autosetup -p1
 
 %build
+./bootstrap
+
 %configure \
 	--disable-dependency-tracking %{?_with_curl} \
 	--with-ldap \
