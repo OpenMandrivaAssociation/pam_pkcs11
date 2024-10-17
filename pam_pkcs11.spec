@@ -4,7 +4,7 @@ Version:	0.6.10
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://www.opensc.org/pam_pkcs11/
+Url:		https://www.opensc.org/pam_pkcs11/
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/%{name}-%{version}.tar.gz
 BuildRequires:	docbook-style-xsl
 BuildRequires:	xsltproc
